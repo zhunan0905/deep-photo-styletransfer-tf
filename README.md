@@ -59,7 +59,7 @@ pip install tensorflow-estimator==1.15.0
 
 ## Usage
 ### Basic Usage
-We then can run the model when the environment we implemented above is active, then type in the command similar to the example below in the Anaconda Prompt to run. You need to specify the path of content image, style image, content image segmentation, style image segmentation and then run the command
+First cd to the clone folder. Then we then can run the model when the environment we implemented above is active, then type in the command similar to the example below in the Anaconda Prompt to run. You need to specify the path of content image, style image, content image segmentation, style image segmentation and then run the command
 
 ```
 python deep_photostyle.py --content_image_path <path_to_content_image> --style_image_path <path_to_style_image> --content_seg_path <path_to_content_segmentation> --style_seg_path <path_to_style_segmentation> --style_option 2
@@ -86,14 +86,20 @@ The examples provided input image, style reference image, and the segmentation i
 ## Examples
 * We put our experiments in the folder ./experiment_example .
 * Here are some comparison between our reproduce results and the results provided by the paper (from left to right: the input, the reference style, the result from paper, and our result)
-
+Command to reproduce the following result
+```
+python deep_photostyle.py --content_image_path ./paper_examples/input/in5.png --style_image_path ./paper_examples/style/tar5.png --content_seg_path ./paper_examples/segmentation/in5.png --style_seg_path ./paper_examples/segmentation/tar5.png --style_option 2 --serial ./results
+```
 <p align="center">
     <img src='paper_examples/input/in5.png' height='140' width='210'/>
     <img src='paper_examples/style/tar5.png' height='140' width='210'/>
     <img src='paper_examples/final_results/best5_t_1000.png' height='140' width='210'/>
     <img src='experiment_example/example5_result/out_iter_4000.png' height='140' width='210'/>
 </p>
-
+Command to reproduce the following result
+```
+python deep_photostyle.py --content_image_path ./paper_examples/input/in11.png --style_image_path ./paper_examples/style/tar11.png --content_seg_path ./paper_examples/segmentation/in11.png --style_seg_path ./paper_examples/segmentation/tar11.png --style_option 2 --serial ./results
+```
 <p align="center">
     <img src='paper_examples/input/in11.png' height='250' width='210'/>
     <img src='paper_examples/style/tar11.png' height='250' width='210'/>
@@ -102,6 +108,10 @@ The examples provided input image, style reference image, and the segmentation i
 </p>
 
 * Here are some examples of our own data(from left to right: the input, the reference style, segmeation images of both, and the result)
+Command to reproduce the following result
+```
+python deep_photostyle.py --content_image_path ./experiment_example/owntest1_result/testinput1_json/input.png --style_image_path ./experiment_example/owntest1_result/teststyle1_json/style.png --content_seg_path ./experiment_example/owntest1_result/testinput1_json/inputseg.png --style_seg_path ./experiment_example/owntest1_result/teststyle1_json/styleseg.png --style_option 2 --serial ./results
+```
 <p align="center">
     <img src='experiment_example/owntest1_result/testinput1_json/input.png' height='250' width='210'/>
     <img src='experiment_example/owntest1_result/teststyle1_json/style.png' height='250' width='210'/>
@@ -109,7 +119,10 @@ The examples provided input image, style reference image, and the segmentation i
     <img src='experiment_example/owntest1_result/teststyle1_json/styleseg.png' height='250' width='210'/>
     <img src='experiment_example/owntest1_result/out_iter_3900.png' height='250' width='210'/>
 </p>
-
+Command to reproduce the following result
+```
+python deep_photostyle.py --content_image_path ./experiment_example/owntest2_result/test5input_json/input.png --style_image_path ./experiment_example/owntest2_result/test5style_json/style.png --content_seg_path ./experiment_example/owntest2_result/test5input_json/inputseg.png --style_seg_path ./experiment_example/owntest2_result/test5style_json/styleseg.png --style_option 2 --serial ./results
+```
 <p align="center">
     <img src='experiment_example/owntest2_result/test5input_json/input.png' height='250' width='210'/>
     <img src='experiment_example/owntest2_result/test5style_json/style.png' height='250' width='210'/>
