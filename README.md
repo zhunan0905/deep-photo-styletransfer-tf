@@ -83,7 +83,7 @@ After running, you will see x/2000 iterations in the terminal, and x will someti
 The examples provided input image, style reference image, and the segmentation image of them. Therefore, when we tried to reproduce the results by using those examples, we just simply specify the path to the segmentation. However, when we wanted to try this model with our own image, we need to generate the segmentation image by ourselves. I used [labelme](https://github.com/wkentaro/labelme) to manually do segmentaion. However, since we cannot change the label color when using labelme, most labels cannot match the label provided by the paper. Therefore, when we want to generate our own work, the outcome doesn't look as good as the the outcome we generated from the examples provided. 
 
 
-## Examples
+## Paper Examples Experiments
 * We put our experiments in the folder ./experiment_example .
 * Here are some comparison between our reproduce results and the results provided by the paper (from left to right: the input, the reference style, the result from paper, and our result)
 * Command to reproduce the below result
@@ -109,6 +109,8 @@ python deep_photostyle.py --content_image_path ./paper_examples/input/in11.png -
     <img src='experiment_example/example11_result/out_iter_2800.png' height='250' width='210'/>
 </p>
 
+
+## Own Data Experiments
 * Here are some examples of our own data(from left to right: the input, the reference style, segmeation images of both, and the result)
 * Command to reproduce the below result
 ```
