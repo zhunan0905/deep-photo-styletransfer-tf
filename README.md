@@ -1,11 +1,11 @@
 # deep-photo-styletransfer-tf CS523 Final Project
 
 ## Team member
-* Junan Zhu
-* Taowen Dong
+* Junan Zhu junanz@bu.edu
+* Taowen Dong taowend@bu.edu
 * Yuanming Leng
 
-We fork this repo from [here](https://github.com/LouieYang/deep-photo-styletransfer-tf). This is a pure Tensorflow implementation of our project reference paper [Deep Photo Styletransfer](https://arxiv.org/abs/1703.07511).
+We fork this repo from [here](https://github.com/LouieYang/deep-photo-styletransfer-tf). This is a pure Tensorflow implementation of our project reference paper: [Deep Photo Styletransfer](https://arxiv.org/abs/1703.07511).
 
 ## Dependencies of this project
 * Tensorflow = 1.15
@@ -53,7 +53,7 @@ pip install tensorflow-estimator==1.15.0
 
 ## Usage
 ### Basic Usage
-You need to specify the path of content image, style image, content image segmentation, style image segmentation and then run the command
+We then can run the model when the environment we implemented above is active. You need to specify the path of content image, style image, content image segmentation, style image segmentation and then run the command
 
 ```
 python deep_photostyle.py --content_image_path <path_to_content_image> --style_image_path <path_to_style_image> --content_seg_path <path_to_content_segmentation> --style_seg_path <path_to_style_segmentation> --style_option 2
@@ -61,21 +61,18 @@ python deep_photostyle.py --content_image_path <path_to_content_image> --style_i
 
 *Example:*
 ```
-python deep_photostyle.py --content_image_path ./examples/input/in11.png --style_image_path ./examples/style/tar11.png --content_seg_path ./examples/segmentation/in11.png --style_seg_path ./examples/segmentation/tar11.png --style_option 2
+python deep_photostyle.py --content_image_path ./paper_examples/input/in11.png --style_image_path ./paper_examples/style/tar11.png --content_seg_path ./paper_examples/segmentation/in11.png --style_seg_path ./paper_examples/segmentation/tar11.png --style_option 2 --serial ./results
 ```
 
 ### Other Options
 
-`--style_option` specifies three different ways of style transferring. `--style_option 0` is to generate segmented intermediate result like torch file **neuralstyle_seg.lua** in torch. `--style_option 1` uses this intermediate result to generate final result like torch file **deepmatting_seg.lua**. `--style_option 2` combines these two steps as a one line command to generate the final result directly.
+`--style_option` specifies three different ways of style transferring. `--style_option 2` is the command to generate the final result directly.
 
-`--content_weight` specifies the weight of the content loss (default=5), `--style_weight` specifies the weight of the style loss (default=100), `--tv_weight` specifies the weight of variational loss (default=1e-3) and `--affine_weight` specifies the weight of affine loss (default=1e4). You can change the values of these weight and play with them to create different photos.
+`--serial` specifies the folder that you want to store the temporary result **out_iter_XXX.png**. The default value of it is `./`. We already create an empty folder to put result in it and already put `--serial ./results` in the example above. **Again, the temporary results are simply clipping the image into [0, 255] without smoothing. Since for now, the smoothing operations need pycuda and pycuda will have conflict with tensorflow when using single GPU**
 
-`--serial` specifies the folder that you want to store the temporary result **out_iter_XXX.png**. The default value of it is `./`. You can simply `mkdir result` and set `--serial ./result` to store them. **Again, the temporary results are simply clipping the image into [0, 255] without smoothing. Since for now, the smoothing operations need pycuda and pycuda will have conflict with tensorflow when using single GPU**
-
-Run `python deep_photostyle.py --help` to see a list of all options
 
 ### Image Segmentation
-This repository doesn't offer image segmentation script and simply use the segmentation image from the [torch version](https://github.com/luanfujun/deep-photo-styletransfer). The mask colors used are also the same as them. You could specify your own segmentation model and mask color to customize your own style transfer.
+The examples provided input image, style reference image, and the segmentation image of them. Therefore, when we tried to reproduce the result by using those examples, we just simply specify the path to the segmentation. However, when we wanted to try this model with our own image, we need to generate the segmentation image by ourselves. I used [labelme](https://github.com/wkentaro/labelme) to manually do segmentaion. However, since we cannot change the lable color when using labelme, most labels cannot match the label provided by the paper. Therefore, when we want to generate our own work, the outcome doesn't look as good as the the outcome we generated from the examples provided. 
 
 
 ## Examples
