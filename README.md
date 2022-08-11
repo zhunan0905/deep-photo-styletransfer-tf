@@ -5,7 +5,7 @@
 * Taowen Dong
 * Yuanming Leng
 
-We fork this repo from [here](https://github.com/LouieYang/deep-photo-styletransfer-tf). This is a pure Tensorflow implementation of [Deep Photo Styletransfer](https://arxiv.org/abs/1703.07511).
+We fork this repo from [here](https://github.com/LouieYang/deep-photo-styletransfer-tf). This is a pure Tensorflow implementation of our project reference paper [Deep Photo Styletransfer](https://arxiv.org/abs/1703.07511).
 
 ## Dependencies of this project
 * Tensorflow = 1.15
