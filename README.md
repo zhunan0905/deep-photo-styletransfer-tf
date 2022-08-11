@@ -3,7 +3,7 @@
 ## Team member
 * Junan Zhu junanz@bu.edu
 * Taowen Dong taowend@bu.edu
-* Yuanming Leng
+* Yuanming Leng lengym@bu.edu
 
 ## Link to our slide
 
