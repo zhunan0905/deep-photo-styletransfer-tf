@@ -9,6 +9,9 @@
 
 [Slide](https://docs.google.com/presentation/d/15RqGGYIHGQKBEjfSQjnWPpk1s0mu0tmQqn0VK4_QCl4/edit#slide=id.gfde27aa0a8_0_29)
 
+## Experiment and Reproduce
+**We put our experiments of the examples provided by the paper and our own data in the folder ./experiment_example**
+
 ## Reference Paper and Code
 We fork this repo from [here](https://github.com/LouieYang/deep-photo-styletransfer-tf). This is a pure Tensorflow implementation of our project reference paper: [Deep Photo Styletransfer](https://arxiv.org/abs/1703.07511).
 
@@ -84,7 +87,6 @@ The examples provided input image, style reference image, and the segmentation i
 
 
 ## Paper Examples Experiments
-* We put our experiments in the folder ./experiment_example .
 * Here are some comparison between our reproduce results and the results provided by the paper (from left to right: the input, the reference style, the result from paper, and our result)
 * Command to reproduce the below result
 ```
