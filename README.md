@@ -126,4 +126,4 @@ The examples provided input image, style reference image, and the segmentation i
 ```
 
 ## Contact
-Feel free to contact me if there is any question (Yang Liu lyng_95@zju.edu.cn).
+Please contact me if there is any question about intructions or anything else(Junan Zhu junanz@bu.edu).
