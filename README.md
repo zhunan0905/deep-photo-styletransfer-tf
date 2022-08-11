@@ -5,7 +5,13 @@
 * Taowen Dong taowend@bu.edu
 * Yuanming Leng
 
+## Link to our slide
+
+[Slide](https://docs.google.com/presentation/d/15RqGGYIHGQKBEjfSQjnWPpk1s0mu0tmQqn0VK4_QCl4/edit#slide=id.gfde27aa0a8_0_29)
+
+## Reference Paper and Code
 We fork this repo from [here](https://github.com/LouieYang/deep-photo-styletransfer-tf). This is a pure Tensorflow implementation of our project reference paper: [Deep Photo Styletransfer](https://arxiv.org/abs/1703.07511).
+
 
 ## Dependencies of this project
 * Tensorflow = 1.15
@@ -64,14 +70,14 @@ python deep_photostyle.py --content_image_path <path_to_content_image> --style_i
 python deep_photostyle.py --content_image_path ./paper_examples/input/in11.png --style_image_path ./paper_examples/style/tar11.png --content_seg_path ./paper_examples/segmentation/in11.png --style_seg_path ./paper_examples/segmentation/tar11.png --style_option 2 --serial ./results
 ```
 
-### Other Options
+### Options
 
 `--style_option` specifies three different ways of style transferring. `--style_option 2` is the command to generate the final result directly.
 
 `--serial` specifies the folder that you want to store the temporary result **out_iter_XXX.png**. The default value of it is `./`. We already create an empty folder to put result in it and already put `--serial ./results` in the example above. **Again, the temporary results are simply clipping the image into [0, 255] without smoothing. Since for now, the smoothing operations need pycuda and pycuda will have conflict with tensorflow when using single GPU**
 
 ### Things might happen in the process
-After running, you will see x/2000 iterations in the terminal, and x will sometimes pass over 2000 and that's normal situation. The iteration will continue and the model will apply matting to the loss function after 2000 iterations. The total iteration will normally stop at 4000 and no more than 4100.
+After running, you will see x/2000 iterations in the terminal, and x will sometimes pass over 2000 and that's normal situation. The iteration will continue and the model will apply matting to the loss function after 2000 iterations. The total iteration will normally stop at 4000 and no more than 4100. If the loss doesn't change when iterating, the model will automatically stop.
 
 ### Image Segmentation
 The examples provided input image, style reference image, and the segmentation image of them. Therefore, when we tried to reproduce the results by using those examples, we just simply specify the path to the segmentation. However, when we wanted to try this model with our own image, we need to generate the segmentation image by ourselves. I used [labelme](https://github.com/wkentaro/labelme) to manually do segmentaion. However, since we cannot change the label color when using labelme, most labels cannot match the label provided by the paper. Therefore, when we want to generate our own work, the outcome doesn't look as good as the the outcome we generated from the examples provided. 
