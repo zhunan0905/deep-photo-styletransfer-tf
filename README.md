@@ -1,9 +1,9 @@
 # deep-photo-styletransfer-tf CS523 Final Project
 
 ## Team member
-Junan Zhu
-Taowen Dong
-Yuanming Leng
+* Junan Zhu
+* Taowen Dong
+* Yuanming Leng
 
 We fork this repo from [here](https://github.com/LouieYang/deep-photo-styletransfer-tf). This is a pure Tensorflow implementation of [Deep Photo Styletransfer](https://arxiv.org/abs/1703.07511).
 
@@ -15,7 +15,7 @@ We fork this repo from [here](https://github.com/LouieYang/deep-photo-styletrans
 * PyCUDA
 
 ## Instruction to run locally
-**Please implement this repo on a Windows OS Machine. I tested the following instructions on a M1 Macbook, and it simply could not support the dependancy we need for this project. I don't have other Mac equipment to test, but it will make things easeier if you implement this on a Windows Machine.Thank you!
+**Please implement this repo on a Windows OS Machine. I tested the following instructions on a M1 Macbook, and it simply could not support the dependancy we need for this project. I don't have other Mac equipment to test, but it will make things easeier if you implement this on a Windows Machine.Thank you!**
 
 ### 1. Clone this repo to local
 
