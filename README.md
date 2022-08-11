@@ -53,7 +53,7 @@ pip install tensorflow-estimator==1.15.0
 
 ## Usage
 ### Basic Usage
-We then can run the model when the environment we implemented above is active. You need to specify the path of content image, style image, content image segmentation, style image segmentation and then run the command
+We then can run the model when the environment we implemented above is active, then type in the command similar to the example below in the Anaconda Prompt to run. You need to specify the path of content image, style image, content image segmentation, style image segmentation and then run the command
 
 ```
 python deep_photostyle.py --content_image_path <path_to_content_image> --style_image_path <path_to_style_image> --content_seg_path <path_to_content_segmentation> --style_seg_path <path_to_style_segmentation> --style_option 2
@@ -70,66 +70,49 @@ python deep_photostyle.py --content_image_path ./paper_examples/input/in11.png -
 
 `--serial` specifies the folder that you want to store the temporary result **out_iter_XXX.png**. The default value of it is `./`. We already create an empty folder to put result in it and already put `--serial ./results` in the example above. **Again, the temporary results are simply clipping the image into [0, 255] without smoothing. Since for now, the smoothing operations need pycuda and pycuda will have conflict with tensorflow when using single GPU**
 
+### Things might happen in the process
+After running, you will see x/2000 iterations in the terminal, and x will sometimes pass over 2000 and that's normal situation. The iteration will continue and the model will apply matting to the loss function after 2000 iterations. The total iteration will normally stop at 4000 and no more than 4100.
 
 ### Image Segmentation
-The examples provided input image, style reference image, and the segmentation image of them. Therefore, when we tried to reproduce the result by using those examples, we just simply specify the path to the segmentation. However, when we wanted to try this model with our own image, we need to generate the segmentation image by ourselves. I used [labelme](https://github.com/wkentaro/labelme) to manually do segmentaion. However, since we cannot change the lable color when using labelme, most labels cannot match the label provided by the paper. Therefore, when we want to generate our own work, the outcome doesn't look as good as the the outcome we generated from the examples provided. 
+The examples provided input image, style reference image, and the segmentation image of them. Therefore, when we tried to reproduce the results by using those examples, we just simply specify the path to the segmentation. However, when we wanted to try this model with our own image, we need to generate the segmentation image by ourselves. I used [labelme](https://github.com/wkentaro/labelme) to manually do segmentaion. However, since we cannot change the label color when using labelme, most labels cannot match the label provided by the paper. Therefore, when we want to generate our own work, the outcome doesn't look as good as the the outcome we generated from the examples provided. 
 
 
 ## Examples
-Here are more results from tensorflow algorithm (from left to right are input, style, torch results and tensorflow results)
+* Here are some comparison between our reproduce results and the results provided by the paper (from left to right: the input, the reference style, the result from paper, and our result)
 
 <p align="center">
-    <img src='examples/input/in6.png' height='140' width='210'/>
-    <img src='examples/style/tar6.png' height='140' width='210'/>
-    <img src='examples/final_results/best6_t_1000.png' height='140' width='210'/>
-    <img src='some_results/best6.png' height='140' width='210'/>
+    <img src='paper_examples/input/in5.png' height='140' width='210'/>
+    <img src='paper_examples/style/tar5.png' height='140' width='210'/>
+    <img src='paper_examples/final_results/best5_t_1000.png' height='140' width='210'/>
+    <img src='experiments_example/example5_result/out_iter_4000.png' height='140' width='210'/>
 </p>
 
 <p align="center">
-    <img src='examples/input/in7.png' height='140' width='210'/>
-    <img src='examples/style/tar7.png' height='140' width='210'/>
-    <img src='examples/final_results/best7_t_1000.png' height='140' width='210'/>
-    <img src='some_results/best7.png' height='140' width='210'/>
+    <img src='paper_examples/input/in11.png' height='140' width='210'/>
+    <img src='paper_examples/style/tar11.png' height='140' width='210'/>
+    <img src='paper_examples/final_results/best11_t_1000.png' height='140' width='210'/>
+    <img src='experiments_example/example11_result/out_iter_2800.png' height='140' width='210'/>
+</p>
+
+* Here are some examples of our own data(from left to right: the input, the reference style, segmeation images of both, and the result)
+<p align="center">
+    <img src='experiments_example/owntest1_result/testinput1_json/input.png' height='140' width='210'/>
+    <img src='experiments_example/owntest1_result/teststyle1_json/style.png' height='140' width='210'/>
+    <img src='experiments_example/owntest1_result/testinput1_json/inputseg.png' height='140' width='210'/>
+    <img src='experiments_example/owntest1_result/teststyle1_json/styleseg.png' height='140' width='210'/>
+    <img src='experiments_example/owntest1_result/out_iter_3900' height='140' width='210'/>
 </p>
 
 <p align="center">
-    <img src='examples/input/in8.png' height='140' width='210'/>
-    <img src='examples/style/tar8.png' height='140' width='210'/>
-    <img src='examples/final_results/best8_t_1000.png' height='140' width='210'/>
-    <img src='some_results/best8.png' height='140' width='210'/>
+    <img src='experiments_example/owntest2_result/testinput2_json/input.png' height='140' width='210'/>
+    <img src='experiments_example/owntest2_result/teststyle2_json/style.png' height='140' width='210'/>
+    <img src='experiments_example/owntest2_result/testinput2_json/inputseg.png' height='140' width='210'/>
+    <img src='experiments_example/owntest2_result/teststyle2_json/styleseg.png' height='140' width='210'/>
+    <img src='experiments_example/owntest2_result/out_iter_4000' height='140' width='210'/>
 </p>
 
-<p align="center">
-    <img src='examples/input/in9.png' height='140' width='210'/>
-    <img src='examples/style/tar9.png' height='140' width='210'/>
-    <img src='examples/final_results/best9_t_1000.png' height='140' width='210'/>
-    <img src='some_results/best9.png' height='140' width='210'/>
-</p>
 
-<p align="center">
-    <img src='examples/input/in10.png' height='140' width='210'/>
-    <img src='examples/style/tar10.png' height='140' width='210'/>
-    <img src='examples/final_results/best10_t_1000.png' height='140' width='210'/>
-    <img src='some_results/best10.png' height='140' width='210'/>
-</p>
-
-<p align="center">
-    <img src='examples/input/in11.png' width='210'/>
-    <img src='examples/style/tar11.png' width='210'/>
-    <img src='examples/final_results/best11_t_1000.png' width='210'/>
-    <img src='some_results/best11.png' width='210'/>
-</p>
-
-## Acknowledgement
-
-* This work was done when Yang Liu was a research intern at *Alibaba-Zhejiang University Joint Research Institute of Frontier Technologies*, under the supervision of [Prof. Mingli Song](http://person.zju.edu.cn/en/msong) and [Yongcheng Jing](http://yongchengjing.com/).
-
-* Our tensorflow implementation basically follows the [torch code](https://github.com/luanfujun/deep-photo-styletransfer).
-
-* We use [martinbenson](https://github.com/martinbenson)'s [python code](https://github.com/martinbenson/deep-photo-styletransfer/blob/master/deep_photo.py) to compute Matting Laplacian.
-
-## Citation
-If you find this code useful for your research, please cite:
+## Reference
 ```
 @misc{YangPhotoStyle2017,
   author = {Yang Liu},
