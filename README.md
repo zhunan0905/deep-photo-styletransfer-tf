@@ -1,4 +1,4 @@
-# deep-photo-styletransfer-tf CS523 Final Project
+# CS523 Final Project deep-photo-styletransfer-tf
 
 ## Team member
 * Junan Zhu junanz@bu.edu
