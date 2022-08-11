@@ -1,32 +1,55 @@
-# deep-photo-styletransfer-tf
+# deep-photo-styletransfer-tf CS523 Final Project
 
-## Setup
-### Dependencies
-* [Tensorflow](https://www.tensorflow.org/): version = 1.15, if you have tensorflow version >= 2.0, then you may need downgrade the tensorflow
+## Team member
+Junan Zhu
+Taowen Dong
+Yuanming Leng
+
+We fork this repo from [here](https://github.com/LouieYang/deep-photo-styletransfer-tf). This is a pure Tensorflow implementation of [Deep Photo Styletransfer](https://arxiv.org/abs/1703.07511).
+
+## Dependencies of this project
+* Tensorflow = 1.15
+* Numpy
+* Pillow
+* Scipy
+* PyCUDA
+
+## Instruction to run locally
+**Please implement this repo on a Windows OS Machine. I tested the following instructions on a M1 Macbook, and it simply could not support the dependancy we need for this project. I don't have other Mac equipment to test, but it will make things easeier if you implement this on a Windows Machine.Thank you!
+
+### 1. Clone this repo to local
+
+### 2. Download the VGG-19 model weights
+The VGG-19 model of tensorflow is adopted from [VGG Tensorflow](https://github.com/machrisaa/tensorflow-vgg) with few modifications on the class interface. The VGG-19 model weights is stored as .npy file and could be download from [Google Drive](https://drive.google.com/file/d/0BxvKyd83BJjYY01PYi1XQjB5R0E/view?usp=sharing&resourcekey=0-Q2AewV9J7IYVNUDSnwPuCA). After downloading, copy the weight file to the **./project/vgg19** directory
+
+### 3. Download Anaconda for setting up enviroment
+If you do have Anaconda in your machine, you can proceed to the next step. If not, please download it from [here](https://www.anaconda.com/).
+
+### 4. Setting up enviroment for the project
+* Open the Anaconda Prompt
+* Run the command to create env
 ```
-pip install tensorflow==1.15
+conda create --name project python=3.7
 ```
-* [Numpy](www.numpy.org/)
+"project" can be any name, let's use project as example in the following.
+* Run the command to activate env
 ```
-pip install numpy
+conda activate project
 ```
-* [Pillow](https://pypi.python.org/pypi/Pillow/)
+* Run the command to install tensorflow-gpu
 ```
-pip install Pillow
+conda install -c conda-forge tensorflow-gpu=1.15
 ```
-* [Scipy](https://www.scipy.org/)
+* Run the command to install pillow
 ```
-pip install scipy
+conda install -c conda-forge pillow
 ```
-* [PyCUDA](https://pypi.python.org/pypi/pycuda) (used in smooth local affine, tested on CUDA 8.0)
+* Run the command to install a estimator
 ```
-pip install pycuda
+pip install tensorflow-estimator==1.15.0
 ```
 
-***It is recommended to use Python 3.7, since you only need to install Tensorflow and PyCUDA manually to setup. The CUDA is optional but really recommended***
 
-### Download the pre-trained VGG-19 model weights
-The VGG-19 model of tensorflow is adopted from [VGG Tensorflow](https://github.com/machrisaa/tensorflow-vgg) with few modifications on the class interface. The VGG-19 model weights is stored as .npy file and could be download from [Google Drive](https://drive.google.com/file/d/0BxvKyd83BJjYY01PYi1XQjB5R0E/view?usp=sharing&resourcekey=0-Q2AewV9J7IYVNUDSnwPuCA) or [BaiduYun Pan](https://pan.baidu.com/s/1o9weflK). After downloading, copy the weight file to the **./project/vgg19** directory
 
 ## Usage
 ### Basic Usage
@@ -55,3 +78,71 @@ Run `python deep_photostyle.py --help` to see a list of all options
 This repository doesn't offer image segmentation script and simply use the segmentation image from the [torch version](https://github.com/luanfujun/deep-photo-styletransfer). The mask colors used are also the same as them. You could specify your own segmentation model and mask color to customize your own style transfer.
 
 
+## Examples
+Here are more results from tensorflow algorithm (from left to right are input, style, torch results and tensorflow results)
+
+<p align="center">
+    <img src='examples/input/in6.png' height='140' width='210'/>
+    <img src='examples/style/tar6.png' height='140' width='210'/>
+    <img src='examples/final_results/best6_t_1000.png' height='140' width='210'/>
+    <img src='some_results/best6.png' height='140' width='210'/>
+</p>
+
+<p align="center">
+    <img src='examples/input/in7.png' height='140' width='210'/>
+    <img src='examples/style/tar7.png' height='140' width='210'/>
+    <img src='examples/final_results/best7_t_1000.png' height='140' width='210'/>
+    <img src='some_results/best7.png' height='140' width='210'/>
+</p>
+
+<p align="center">
+    <img src='examples/input/in8.png' height='140' width='210'/>
+    <img src='examples/style/tar8.png' height='140' width='210'/>
+    <img src='examples/final_results/best8_t_1000.png' height='140' width='210'/>
+    <img src='some_results/best8.png' height='140' width='210'/>
+</p>
+
+<p align="center">
+    <img src='examples/input/in9.png' height='140' width='210'/>
+    <img src='examples/style/tar9.png' height='140' width='210'/>
+    <img src='examples/final_results/best9_t_1000.png' height='140' width='210'/>
+    <img src='some_results/best9.png' height='140' width='210'/>
+</p>
+
+<p align="center">
+    <img src='examples/input/in10.png' height='140' width='210'/>
+    <img src='examples/style/tar10.png' height='140' width='210'/>
+    <img src='examples/final_results/best10_t_1000.png' height='140' width='210'/>
+    <img src='some_results/best10.png' height='140' width='210'/>
+</p>
+
+<p align="center">
+    <img src='examples/input/in11.png' width='210'/>
+    <img src='examples/style/tar11.png' width='210'/>
+    <img src='examples/final_results/best11_t_1000.png' width='210'/>
+    <img src='some_results/best11.png' width='210'/>
+</p>
+
+## Acknowledgement
+
+* This work was done when Yang Liu was a research intern at *Alibaba-Zhejiang University Joint Research Institute of Frontier Technologies*, under the supervision of [Prof. Mingli Song](http://person.zju.edu.cn/en/msong) and [Yongcheng Jing](http://yongchengjing.com/).
+
+* Our tensorflow implementation basically follows the [torch code](https://github.com/luanfujun/deep-photo-styletransfer).
+
+* We use [martinbenson](https://github.com/martinbenson)'s [python code](https://github.com/martinbenson/deep-photo-styletransfer/blob/master/deep_photo.py) to compute Matting Laplacian.
+
+## Citation
+If you find this code useful for your research, please cite:
+```
+@misc{YangPhotoStyle2017,
+  author = {Yang Liu},
+  title = {deep-photo-style-transfer-tf},
+  publisher = {GitHub},
+  organization={Alibaba-Zhejiang University Joint Research Institute of Frontier Technologies},
+  year = {2017},
+  howpublished = {\url{https://github.com/LouieYang/deep-photo-styletransfer-tf}}
+}
+```
+
+## Contact
+Feel free to contact me if there is any question (Yang Liu lyng_95@zju.edu.cn).
