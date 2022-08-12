@@ -140,6 +140,23 @@ python deep_photostyle.py --content_image_path ./experiment_example/owntest2_res
 </p>
 
 
+Since our segmentation method could not work perfectly so we only generate results for specific label color which is black in our tests, and the above two tests can only tansfer the style to the sky only; therefore, I used the same input and reference as the above test, and apply the black label color to the building. We want to have a clear clue that the matting and the semantics segmentation should both work well not just on the sky, but also on other part of the input. However, in the test below, although the mapping and the segmentaion work well on the building part, the sky is weirdly purple. We believed the reason was not about the segmentation and the mapping function since the style did not transfer to the sky at all, and the sky was already purple-ish in the first 100 iterations without matting. We are still learning the reason for that.
+
+* Command to reproduce the below result
+```
+python deep_photostyle.py --content_image_path ./experiment_example/otherpart_owntest2_result/reverse5input_json/rev5input.png --style_image_path ./experiment_example/otherpart_owntest2_result/reverse5style_json/rev5style.png --content_seg_path ./experiment_example/otherpart_owntest2_result/reverse5input_json/rev5inputseg.png --style_seg_path ./experiment_example/otherpart_owntest2_result/reverse5input_json/rev5styleseg.png --style_option 2 --serial ./results
+```
+
+<p align="center">
+    <img src='experiment_example/otherpart_owntest2_result/reverse5input_json/rev5input.png' height='250' width='210'/>
+    <img src='experiment_example/otherpart_owntest2_result/reverse5style_json/rev5style.png' height='250' width='210'/>
+    <img src='experiment_example/otherpart_owntest2_result/reverse5input_json/rev5inputseg.png' height='250' width='210'/>
+    <img src='experiment_example/otherpart_owntest2_result/reverse5input_json/rev5styleseg.png' height='250' width='210'/>
+    <img src='experiment_example/otherpart_owntest2_result/out_iter_4000.png' height='250' width='210'/>
+</p>
+
+
+
 ## Reference
 ```
 @misc{YangPhotoStyle2017,
