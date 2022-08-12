@@ -151,7 +151,7 @@ python deep_photostyle.py --content_image_path ./experiment_example/otherpart_ow
     <img src='experiment_example/otherpart_owntest2_result/reverse5input_json/rev5input.png' height='250' width='210'/>
     <img src='experiment_example/otherpart_owntest2_result/reverse5style_json/rev5style.png' height='250' width='210'/>
     <img src='experiment_example/otherpart_owntest2_result/reverse5input_json/rev5inputseg.png' height='250' width='210'/>
-    <img src='experiment_example/otherpart_owntest2_result/reverse5input_json/rev5styleseg.png' height='250' width='210'/>
+    <img src='experiment_example/otherpart_owntest2_result/reverse5style_json/rev5styleseg.png' height='250' width='210'/>
     <img src='experiment_example/otherpart_owntest2_result/out_iter_4000.png' height='250' width='210'/>
 </p>
 
