@@ -140,7 +140,7 @@ python deep_photostyle.py --content_image_path ./experiment_example/owntest2_res
 </p>
 
 
-Since our segmentation method could not work perfectly so we only generate results for specific label color which is black in our tests, and the above two tests can only tansfer the style to the sky only; therefore, I used the same input and reference as the above test, and apply the black label color to the building. We want to have a clear clue that the matting and the semantics segmentation should both work well not just on the sky, but also on other part of the input. However, in the test below, although the mapping and the segmentaion work well on the building part, the sky is weirdly purple. We believed the reason was not about the segmentation and the mapping function since the style did not transfer to the sky at all, and the sky was already purple-ish in the first 100 iterations without matting. We are still learning the reason for that.
+Since our segmentation method could not work perfectly so we only generate results for specific label color which is black in our tests, and the above two tests can only tansfer the style to the sky only; therefore, I used the same input and reference as the above test, and apply the black label color to the building. We want to have a clear clue that the matting and the semantics segmentation should both work well not just on the sky, but also on other part of the input. However, in the test below, although the mapping and the segmentaion work well on the building part, the sky is weirdly purple. I believed the reason was that my manual did segmentation that I might include a little bit of the sky when lining the edges of buildings. From the first 100 iterations image we can tell that the purple dots were generated around the building and then spreaded out in the after images. Hence, when the matting start, things got worse.
 
 * Command to reproduce the below result
 ```
@@ -155,19 +155,6 @@ python deep_photostyle.py --content_image_path ./experiment_example/otherpart_ow
     <img src='experiment_example/otherpart_owntest2_result/out_iter_4000.png' height='250' width='210'/>
 </p>
 
-
-
-## Reference
-```
-@misc{YangPhotoStyle2017,
-  author = {Yang Liu},
-  title = {deep-photo-style-transfer-tf},
-  publisher = {GitHub},
-  organization={Alibaba-Zhejiang University Joint Research Institute of Frontier Technologies},
-  year = {2017},
-  howpublished = {\url{https://github.com/LouieYang/deep-photo-styletransfer-tf}}
-}
-```
 
 ## Contact
 Please contact me if there is any question about intructions or anything else(Junan Zhu junanz@bu.edu).
